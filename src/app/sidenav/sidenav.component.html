@@ -1,0 +1,96 @@
+<mat-drawer-container class="expanded-container mat-typography">
+	<mat-drawer #drawer mode="side" disableClose="true" opened="true">
+		<mat-nav-list>
+			<mat-list-item>
+				<mat-icon mat-list-icon>person</mat-icon>
+				<h4>Person</h4>
+			</mat-list-item>
+			<mat-list-item>
+				<mat-icon mat-list-icon>assignment</mat-icon>
+				<h4>Assignment</h4>
+			</mat-list-item>
+			<mat-list-item>
+				<mat-icon mat-list-icon>domain</mat-icon>
+				<h4>Domain</h4>
+			</mat-list-item>
+			<mat-list-item>
+				<mat-icon mat-list-icon>folder_shared</mat-icon>
+				<h4>Folder shared</h4>
+			</mat-list-item>
+		</mat-nav-list>
+	</mat-drawer>
+	<div class="card-">
+		<mat-card class="firstCard">
+			<mat-card-header>
+				<mat-card-title-group>
+					<mat-icon class="iconclass">account_balance_wallet</mat-icon>
+					<mat-icon class="iconVert">more_vert</mat-icon>
+				</mat-card-title-group>
+			</mat-card-header>
+			<mat-card-title class="cardText">Balance</mat-card-title>
+			<mat-card-content class="cardText">
+				{{content.balance | currency: 'USD'}}
+			</mat-card-content>
+		</mat-card>
+		<mat-card class="secondCard">
+			<mat-card-header>
+				<mat-card-title-group>
+					<mat-card-title>Income</mat-card-title>
+					<mat-card-subtitle>$2345</mat-card-subtitle>
+					<mat-icon>card_membership</mat-icon>
+					<mat-icon>more_vert</mat-icon>
+				</mat-card-title-group>
+			</mat-card-header>
+			<mat-card-content>
+				{{content.income}}
+			</mat-card-content>
+		</mat-card>
+		<mat-card class="thirdCard">
+			<mat-card-header>
+				<mat-card-title-group>
+					<mat-card-title>Savings</mat-card-title>
+					<mat-card-subtitle>$2345</mat-card-subtitle>
+					<mat-icon>assignment_late</mat-icon>
+					<mat-icon>more_vert</mat-icon>
+				</mat-card-title-group>
+			</mat-card-header>
+			<mat-card-content>
+				{{content.savings | currency:'CAD'}}
+			</mat-card-content>
+		</mat-card>
+		<mat-card class="fourthCard">
+			<mat-card-header>
+				<mat-card-title-group>
+					<mat-card-title>Expenses</mat-card-title>
+					<mat-card-subtitle>$2345</mat-card-subtitle>
+					<mat-icon>price_change</mat-icon>
+					<mat-icon>more_vert</mat-icon>
+				</mat-card-title-group>
+			</mat-card-header>
+			<mat-card-content>
+				{{content.expenses | currency:'USD'}}
+			</mat-card-content>
+		</mat-card>
+
+		<mat-card class="rightCard">
+			<mat-card-header>
+				<mat-card-title>My Cards</mat-card-title>
+				<mat-icon>more_vert</mat-icon>
+			</mat-card-header>
+			<img mat-card-image
+				src="https://www.visa.com.vc/dam/VCOM/regional/lac/ENG/Default/Pay%20With%20Visa/Find%20a%20Card/Debit%20Cards/Debit%20Classic/visaclassicdebit-400x225.jpg">
+			<mat-card-subtitle>Your Balance</mat-card-subtitle>
+			<mat-card-content>
+				<p><b>$2190.89</b></p>
+				<button mat-raised-button color="primary">+ Add new card</button>
+			</mat-card-content>
+		</mat-card>
+	</div>
+	<!-- <mat-card> -->
+		<div id="chart">
+			<apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+				[dataLabels]="chartOptions.dataLabels" [grid]="chartOptions.grid" [stroke]="chartOptions.stroke"
+				[title]="chartOptions.title" [labels]="chartOptions.labels"
+				[annotations]="chartOptions.annotations"></apx-chart>
+		</div>
+	<!-- </mat-card> -->
