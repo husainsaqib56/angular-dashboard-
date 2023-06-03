@@ -86,11 +86,20 @@
 			</mat-card-content>
 		</mat-card>
 	</div>
-	<!-- <mat-card> -->
-		<div id="chart">
-			<apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
-				[dataLabels]="chartOptions.dataLabels" [grid]="chartOptions.grid" [stroke]="chartOptions.stroke"
-				[title]="chartOptions.title" [labels]="chartOptions.labels"
-				[annotations]="chartOptions.annotations"></apx-chart>
+	<div style="display:flex;
+    width: 70%;
+    position: relative;
+    top: -25%;
+    left: 1%;">
+		<div style="width: 100%; margin-right: 20px;">
+			<div id="chart">
+				<apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+					[dataLabels]="chartOptions.dataLabels" [grid]="chartOptions.grid" [stroke]="chartOptions.stroke"
+					[title]="chartOptions.title" [labels]="chartOptions.labels"
+					[annotations]="chartOptions.annotations"></apx-chart>
+			</div>
 		</div>
-	<!-- </mat-card> -->
+		<div style="width: 100%;">
+			<app-pie-chart></app-pie-chart>
+		</div>
+	</div>

@@ -13,19 +13,28 @@ import {
   ApexAnnotations,
   ApexGrid,
   ApexTitleSubtitle,
+  ApexNonAxisChartSeries,
+  ApexResponsive,
 } from 'ng-apexcharts';
 
 export type ChartOptions = {
-  series?: ApexAxisChartSeries | undefined;
+  series: ApexAxisChartSeries | undefined | any;
   annotations?: ApexAnnotations | undefined;
   chart?: ApexChart | undefined;
   xaxis?: ApexXAxis | undefined;
   dataLabels?: ApexDataLabels | undefined;
   grid?: ApexGrid | undefined;
-  labels?: string[] | undefined;
+  labels?: string[] | undefined | any;
   stroke?: ApexStroke | undefined;
   title?: ApexTitleSubtitle | undefined;
+  responsive: ApexResponsive[];
 };
+// export type ChartOptions = {
+//   series: ApexNonAxisChartSeries;
+//   chart: ApexChart;
+//   responsive: ApexResponsive[];
+ 
+// };
 
 
 @Component({
@@ -38,6 +47,8 @@ export class SidenavComponent implements OnInit {
   @ViewChild('chart')
   chart!: SidenavComponent;
   public chartOptions: Partial<ChartOptions> | any;
+   @ViewChild("chart1") chart1!: ChartComponent;
+  public chartOptions1?: Partial<ChartOptions>;
 
   ngOnInit() {
     this.contentService.getContent().subscribe((response: any) => {
@@ -61,6 +72,7 @@ export class SidenavComponent implements OnInit {
       ],
       chart: {
         type: 'line',
+        width: '100%'
       },
       annotations: {
         points: [
@@ -68,7 +80,7 @@ export class SidenavComponent implements OnInit {
             x: new Date('14 Nov 2017').getTime(),
             y: 8900,
             marker: {
-              size: 6,
+              size: 2,
               fillColor: '#fff',
               strokeColor: 'red',
               radius: 2,
@@ -90,7 +102,7 @@ export class SidenavComponent implements OnInit {
       },
       stroke: {
         curve: 'smooth',
-        width: 3,
+        // width: 1,
       },
       grid: {
         padding: {
@@ -106,6 +118,26 @@ export class SidenavComponent implements OnInit {
       xaxis: {
         type: 'datetime',
       },
+    };
+    this.chartOptions1 = {
+      series: [44, 55, 13],
+      chart: {
+        type: "donut"
+      },
+      labels: ["Team A", "Team B", "Team C"],
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart1: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
     };
   }
 
